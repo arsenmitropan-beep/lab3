@@ -7,7 +7,7 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #161616, #242625);
+    background: linear-gradient(135deg, #161616, #2b2d2c);
     color: #1e1e1e;
 }
 
@@ -18,11 +18,12 @@ body {
     gap: 16px;
 }
 
+/* Боковое меню */
 .sidebar {
-    width: 240px;
+    width: 210px;
     background-color: #ffffff;
-    border-radius: 16px;
-    padding: 24px 16px;
+    border-radius: 18px;
+    padding: 24px 14px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -33,22 +34,26 @@ body {
     font-size: 24px;
     font-weight: 700;
     color: #6b7f73;
-    padding: 0 12px;
+    padding: 0 10px;
     margin-bottom: 24px;
 }
 
 .nav-menu {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .nav-item {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
     text-decoration: none;
-    color: #1e1e1e;
-    padding: 12px 14px;
-    border-radius: 10px;
+    color: #2c302e;
+    padding: 10px 8px;
+    border-radius: 12px;
+    font-size: 14px;
     font-weight: 500;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -62,11 +67,24 @@ body {
         color: #ffffff;
     }
 
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+.icon-sm {
+    width: 18px;
+    height: 18px;
+}
+
 .logout-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     text-decoration: none;
-    color: #666666;
-    padding: 10px 14px;
+    color: #5c6660;
+    padding: 10px 12px;
     border-radius: 10px;
     font-size: 14px;
 }
@@ -75,16 +93,17 @@ body {
         background-color: #f3f3f3;
     }
 
+/* Основная область */
 .main-content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
 }
 
 .top-header {
     color: #ffffff;
-    padding: 6px 4px;
+    padding: 4px 6px;
 }
 
     .top-header h1 {
@@ -100,24 +119,31 @@ body {
 
 .content-card {
     background-color: #ffffff;
-    border-radius: 16px;
+    border-radius: 18px;
     padding: 24px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
 }
 
+/* Сетка статистики (CSS Grid) */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    margin-bottom: 24px;
 }
 
 .stat-box {
-    background-color: #f6f8f7;
+    background-color: #f7f9f8;
     border: 1px solid #e6ece8;
-    border-radius: 12px;
-    padding: 20px;
+    border-radius: 14px;
+    padding: 18px 14px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
 .stat-value {
@@ -126,16 +152,84 @@ body {
     color: #1e1e1e;
 }
 
+.stat-icon {
+    width: 28px;
+    height: 28px;
+    color: #6b7f73;
+}
+
 .stat-label {
     font-size: 14px;
     color: #5c6660;
-    margin-top: 6px;
 }
 
+/* Нижние карточки (Топ студентов и Сообщения) */
+.widgets-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.widget-card {
+    background-color: #f7f9f8;
+    border: 1px solid #e6ece8;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e1e7e3;
+}
+
+    .widget-header h2 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #2c302e;
+    }
+
+.widget-icon {
+    width: 24px;
+    height: 24px;
+    color: #6b7f73;
+}
+
+.widget-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+    .widget-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #edf1ef;
+        font-size: 14px;
+        color: #3a403d;
+    }
+
+        .widget-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+.score {
+    color: #6b7f73;
+    font-size: 13px;
+}
+
+/* Интерактивный блок JS */
 .js-panel {
-    background-color: #f6f8f7;
+    background-color: #f7f9f8;
     border: 1px solid #e2e8e4;
-    border-radius: 12px;
+    border-radius: 14px;
     padding: 18px;
 }
 
@@ -222,9 +316,14 @@ body {
     font-weight: 500;
 }
 
-@media (max-width: 900px) {
+/* Адаптивность */
+@media (max-width: 960px) {
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .widgets-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -240,11 +339,271 @@ body {
     .nav-menu {
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
     .stats-grid {
         grid-template-columns: 1fr;
+    }
+}
+.courses-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.accent-title {
+    color: #7c9485;
+}
+
+.add-plus-btn {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 8px;
+    background-color: #6b7f73;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+    .add-plus-btn:hover {
+        background-color: #586a5f;
+    }
+
+.search-pill {
+    border-radius: 999px;
+    min-width: 240px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    margin-bottom: 16px;
+}
+
+.courses-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+    .courses-table th {
+        text-align: left;
+        padding: 12px 10px;
+        font-weight: 700;
+        color: #1e1e1e;
+        border-bottom: 1px solid #cfd6d2;
+    }
+
+    .courses-table td {
+        padding: 14px 10px;
+        border-bottom: 1px solid #e9eeeb;
+        color: #2c302e;
+    }
+
+.course-link {
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.action-link {
+    color: #6b7f73;
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 14px;
+    padding: 0;
+}
+
+    .action-link:hover {
+        text-decoration: underline;
+    }
+.student-layout {
+    gap: 24px;
+}
+
+.student-form-card {
+    max-width: 560px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #e6ece8;
+    border-radius: 18px;
+    padding: 28px 36px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.student-form-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c302e;
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #e2e7e4;
+}
+
+.student-reg-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.underline-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #cfd6d2;
+    padding: 10px 4px;
+    font-size: 14px;
+    color: #1e1e1e;
+    background-color: transparent;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+    .underline-input:focus {
+        border-bottom-color: #6b7f73;
+    }
+
+.student-submit-btn {
+    align-self: center;
+    margin-top: 10px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    background-color: #6b7f73;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    .student-submit-btn:hover {
+        background-color: #586a5f;
+    }
+
+.student-feedback {
+    text-align: center;
+}
+/* Карточки сертификатов по макету Figma */
+.certificates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 16px;
+}
+
+.cert-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #f4f7f5;
+    border: 1px solid #b8cbbd;
+    border-radius: 14px;
+    padding: 18px 22px;
+}
+
+.cert-preview {
+    width: 120px;
+    min-width: 120px;
+    height: 82px;
+    background-color: #ffffff;
+    border: 1px solid #c7d0ca;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 6px;
+    text-align: center;
+}
+
+.cert-preview-top {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #2c302e;
+}
+
+.cert-preview-brand {
+    font-size: 9px;
+    color: #6b7f73;
+}
+
+.cert-preview-holder {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e1e1e;
+    margin-top: 2px;
+}
+
+.cert-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cert-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e1e1e;
+}
+
+.cert-meta {
+    font-size: 13px;
+    color: #4a524d;
+}
+
+.cert-id {
+    font-size: 12px;
+    color: #8b948e;
+    margin-top: 2px;
+}
+
+.cert-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 136px;
+}
+
+.cert-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #6b7f73;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    .cert-btn:hover {
+        background-color: #586a5f;
+    }
+
+@media (max-width: 768px) {
+    .cert-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cert-actions {
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .cert-btn {
+        flex: 1;
     }
 }
