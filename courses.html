@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillTest — Курси</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body data-page="courses">
+    <div class="app-container">
+        <aside class="sidebar">
+            <div>
+                <div class="brand">SkillTest</div>
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-item">Головна</a>
+                    <a href="courses.html" class="nav-item active">Курси</a>
+                    <a href="students.html" class="nav-item">Студент</a>
+                    <a href="teachers.html" class="nav-item">Викладач</a>
+                    <a href="certificates.html" class="nav-item">Сертифікати</a>
+                </nav>
+            </div>
+            <a href="index.html" class="logout-btn">Logout</a>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h1>Курси</h1>
+                <p>Перелік навчальних курсів та тестових модулів</p>
+            </header>
+
+            <section class="content-card">
+                <div class="js-panel">
+                    <div class="js-toolbar">
+                        <strong>Список курсів</strong>
+                        <div class="js-controls">
+                            <input type="text" id="filterInput" class="js-input" placeholder="Фільтр курсів...">
+                            <button type="button" id="toggleListBtn" class="js-btn">Сховати список</button>
+                        </div>
+                    </div>
+                    <ul id="itemsList" class="js-list"></ul>
+                    <form id="addItemForm" class="js-form" novalidate>
+                        <input type="text" id="newItemInput" class="js-input" placeholder="Назва нового курсу...">
+                        <button type="submit" class="js-btn js-btn-dark">Додати курс</button>
+                        <div id="formFeedback" class="js-message"></div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

@@ -3,36 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkillTest - Головна</title>
+    <title>SkillTest — Головна</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-<body>
+<body data-page="dashboard">
     <div class="app-container">
         <aside class="sidebar">
-            <h2 class="logo">SkillTest</h2>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-item active">Головна</a>
-                <a href="courses.html" class="nav-item">Курси</a>
-                <a href="students.html" class="nav-item">Студент</a>
-                <a href="teachers.html" class="nav-item">Викладач</a>
-                <a href="certificates.html" class="nav-item">Сертифікати</a>
-            </nav>
-            <div class="logout">
-                <a href="#">Logout</a>
+            <div>
+                <div class="brand">SkillTest</div>
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-item active">Головна</a>
+                    <a href="courses.html" class="nav-item">Курси</a>
+                    <a href="students.html" class="nav-item">Студент</a>
+                    <a href="teachers.html" class="nav-item">Викладач</a>
+                    <a href="certificates.html" class="nav-item">Сертифікати</a>
+                </nav>
             </div>
+            <a href="index.html" class="logout-btn">Logout</a>
         </aside>
 
         <main class="main-content">
             <header class="top-header">
                 <h1>Dashboard</h1>
+                <p>Загальна статистика та швидке керування платформою SkillTest</p>
             </header>
 
             <section class="content-card">
                 <div class="stats-grid">
-                    <div class="stat-box"><h3>58</h3><p>Курси</p></div>
-                    <div class="stat-box"><h3>200</h3><p>Студенти</p></div>
-                    <div class="stat-box"><h3>25</h3><p>Викладачі</p></div>
-                    <div class="stat-box"><h3>680</h3><p>Завдання</p></div>
+                    <div class="stat-box">
+                        <div class="stat-value">58</div>
+                        <div class="stat-label">Курси</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">200</div>
+                        <div class="stat-label">Студенти</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">25</div>
+                        <div class="stat-label">Викладачі</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">680</div>
+                        <div class="stat-label">Завдання</div>
+                    </div>
+                </div>
+
+                <div class="js-panel">
+                    <div class="js-toolbar">
+                        <strong>Огляд показників</strong>
+                        <div class="js-controls">
+                            <input type="text" id="filterInput" class="js-input" placeholder="Пошук по списку...">
+                            <button type="button" id="toggleListBtn" class="js-btn">Сховати список</button>
+                        </div>
+                    </div>
+                    <ul id="itemsList" class="js-list"></ul>
+                    <form id="addItemForm" class="js-form" novalidate>
+                        <input type="text" id="newItemInput" class="js-input" placeholder="Додати новий запис...">
+                        <button type="submit" class="js-btn js-btn-dark">Додати</button>
+                        <div id="formFeedback" class="js-message"></div>
+                    </form>
                 </div>
             </section>
         </main>
